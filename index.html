@@ -154,10 +154,9 @@
         ];
 
         const tbody = document.getElementById("dataset-list");
-        const baseUrl = window.location.origin;
 
         files.forEach(file => {
-            const fullUrl = `${baseUrl}/${encodeURI(file)}`;
+            const fullUrl = new URL(file, window.location.href).href;
             const row = document.createElement("tr");
 
             const nameCell = document.createElement("td");
